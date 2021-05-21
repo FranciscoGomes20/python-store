@@ -54,7 +54,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,6 +119,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/pt-br/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STRIPE_PUBLIC_KEY = 'pk_test_51ItdHDKjiMRChUHasQIgKUs4ISOyNHP1Dg1jyYlfdJX0TgTr6Zs0xPcTyMOTeZXF6b1aWMxPxCgkEq2pt4KA9gpq00CD8oCNRt'
+STRIPE_SECRET_KEY = 'sk_test_51ItdHDKjiMRChUHaH0cigPivqlhxxyAIDhWelKMM8roF9eES25z9WvA3V0iDuvAu8d708cSpsC8JYBQ4rtkslyt900t6EuvJN2'
+STRIPE_WEBHOOK_SECRET = ''
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
