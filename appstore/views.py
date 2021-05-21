@@ -35,7 +35,7 @@ class CreateCheckoutSessionView(View):
         produto_id = self.kwargs["pk"]
         produto = Produto.objects.get(id=produto_id)
         print(produto)
-        YOUR_DOMAIN = "127.0.0.1:8000"
+        YOUR_DOMAIN = "http://127.0.0.1:8000"
         checkout_session = stripe.checkout.Session.create(
             payment_method_types=['card'],
             line_items=[
@@ -52,8 +52,8 @@ class CreateCheckoutSessionView(View):
                 },
             ],
             mode='payment',
-            success_url=YOUR_DOMAIN + '/success',
-            cancel_url=YOUR_DOMAIN + '/cancel',
+            success_url=YOUR_DOMAIN + '/sucesso/',
+            cancel_url=YOUR_DOMAIN + '/cancelado/',
         )
         return JsonResponse({
             'id': checkout_session.id
