@@ -122,7 +122,7 @@ STATIC_URL = '/static/'
 
 STRIPE_PUBLIC_KEY = 'pk_test_51ItdHDKjiMRChUHasQIgKUs4ISOyNHP1Dg1jyYlfdJX0TgTr6Zs0xPcTyMOTeZXF6b1aWMxPxCgkEq2pt4KA9gpq00CD8oCNRt'
 STRIPE_SECRET_KEY = 'sk_test_51ItdHDKjiMRChUHaH0cigPivqlhxxyAIDhWelKMM8roF9eES25z9WvA3V0iDuvAu8d708cSpsC8JYBQ4rtkslyt900t6EuvJN2'
-STRIPE_WEBHOOK_SECRET = ''
+STRIPE_WEBHOOK_SECRET = 'whsec_vc0zBYSiPqkmi35q994FauaL08oWmTh4'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

@@ -1,9 +1,10 @@
 import stripe
 from django.conf import settings  # alterar settings quando for upar no heroku
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.views import View
 from django.views.generic import TemplateView
 from .models import Produto
+from django.views.decorators.csrf import csrf_exempt
 
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -58,3 +59,31 @@ class CreateCheckoutSessionView(View):
         return JsonResponse({
             'id': checkout_session.id
         })
+
+
+@csrf_exempt
+def stripe_webhook(request):
+
+    payload = request.body
+    sig_header = request.META['HTTP_STRIPE_SIGNATURE']
+    event = None
+
+    try:
+        event = stripe.Webhook.construct_event(
+            payload, sig_header, settings.STRIPE_WEBHOOK_SECRET
+        )
+    except ValueError as e:
+        # Invalid payload
+        return HttpResponse(status=400)
+    except stripe.error.SignatureVerificationError as e:
+        # Invalid signature
+        return HttpResponse(status=400)
+
+        # Handle the checkout.session.completed event
+    if event['type'] == 'checkout.session.completed':
+        session = event['data']['object']
+
+        print(session)
+
+    # Passed signature verification
+    return HttpResponse(status=200)
