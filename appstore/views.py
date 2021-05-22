@@ -5,6 +5,7 @@ from django.core.mail import send_mail
 from django.views import View
 from django.views.generic import TemplateView
 from .models import Produto
+from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
 
@@ -64,6 +65,8 @@ class CreateCheckoutSessionView(View):
             'id': checkout_session.id
         })
 
+def base(request):
+    return render(request, 'base.html')
 
 @csrf_exempt
 def stripe_webhook(request):
