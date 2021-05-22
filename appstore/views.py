@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from django.views import View
 from django.views.generic import TemplateView
 from .models import Produto
+from django.shortcuts import render
 
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -58,3 +59,6 @@ class CreateCheckoutSessionView(View):
         return JsonResponse({
             'id': checkout_session.id
         })
+
+def base(request):
+    return render(request, 'base.html')

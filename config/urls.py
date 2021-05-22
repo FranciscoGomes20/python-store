@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('cancelado/', CanceladoView.as_view(), name='cancelado'),
     path('sucesso/', SucessoView.as_view(), name='sucesso'),
-    path('create-checkout-session/<pk>/', CreateCheckoutSessionView.as_view(),
-         name='create-checkout-session'),
+    path('create-checkout-session/<pk>/', CreateCheckoutSessionView.as_view(), name='create-checkout-session'),
     path('', index.as_view(), name='index'),
+    path('base/', base, name='base'),
 ]
