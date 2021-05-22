@@ -1,6 +1,7 @@
 import stripe
 from django.conf import settings  # alterar settings quando for upar no heroku
 from django.http import JsonResponse, HttpResponse
+from django.core.mail import send_mail
 from django.views import View
 from django.views.generic import TemplateView
 from .models import Produto
@@ -52,6 +53,9 @@ class CreateCheckoutSessionView(View):
                     'quantity': 1,
                 },
             ],
+            metadata={
+                "produto_id": produto.id
+            },
             mode='payment',
             success_url=YOUR_DOMAIN + '/sucesso/',
             cancel_url=YOUR_DOMAIN + '/cancelado/',
@@ -82,8 +86,23 @@ def stripe_webhook(request):
         # Handle the checkout.session.completed event
     if event['type'] == 'checkout.session.completed':
         session = event['data']['object']
-
+        
         print(session)
+
+        customer_email = session["customer_details"]["email"]
+        produto_id = session["metadata"]["produto_id"]
+
+        
+        produto = Produto.objects.get(id=produto_id)
+
+        send_mail(
+            subject="Aqui está o seu produto !",
+            message="Obrigado por comprar nosso produto e colaborar com a comunidade de desenvolvimento =)",
+            recipient_list=[customer_email],
+            from_email="teste@gmail.com"
+        )
+
+        
 
     # Passed signature verification
     return HttpResponse(status=200)
