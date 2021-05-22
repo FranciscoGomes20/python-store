@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'appstore',
+    'anymail',
 ]
 
 MIDDLEWARE = [
@@ -132,4 +133,12 @@ STRIPE_WEBHOOK_SECRET = 'whsec_vc0zBYSiPqkmi35q994FauaL08oWmTh4'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_BACKEND = 'anymail.backends.mailgun.EmailBackend'
+DEFAULT_FROM_EMAIL = 'no'
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
+ANYMAIL = {
+    "MAILGUN_API_KEY": '7672bb51bf53266b5d56760de099c443-6ae2ecad-9496153d',
+    "MAILGUN_SENDER_DOMAIN": 'sandbox4f5d1f955f3148e6b284eb561fe15976.mailgun.org',
+}

@@ -99,7 +99,7 @@ def stripe_webhook(request):
             subject="Aqui está o seu produto !",
             message="Obrigado por comprar nosso produto e colaborar com a comunidade de desenvolvimento =)",
             recipient_list=[customer_email],
-            from_email="teste@gmail.com"
+            from_email="python-store@gmail.com"
         )
 
         
