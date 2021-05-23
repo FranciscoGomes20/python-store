@@ -51,18 +51,18 @@
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home
+                <a class="nav-link" href="{% url 'index' %}">Home
                   <span class="sr-only">(current)</span>
                 </a>
-              </li> 
-              <li class="nav-item">
-                <a class="nav-link" href="products.html">Our Products</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About Us</a>
+                <a class="nav-link" href="#">Our Products</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact Us</a>
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact Us</a>
               </li>
             </ul>
           </div>
@@ -76,20 +76,20 @@
       <div class="owl-banner owl-carousel">
         <div class="banner-item-01">
           <div class="text-content">
-            <h4>Best Offer</h4>
-            <h2>New Arrivals On Sale</h2>
+            <h4>Nike</h4>
+            <h2>Just Do It</h2>
           </div>
         </div>
         <div class="banner-item-02">
           <div class="text-content">
-            <h4>Flash Deals</h4>
-            <h2>Get your best products</h2>
+            <h4>Adidas</h4>
+            <h2>Impossible Is Nothing</h2>
           </div>
         </div>
         <div class="banner-item-03">
           <div class="text-content">
-            <h4>Last Minute</h4>
-            <h2>Grab last minute deals</h2>
+            <h4>Vans</h4>
+            <h2>Off The Wall</h2>
           </div>
         </div>
       </div>
@@ -107,17 +107,18 @@
           <div class="col-md-12">
             <div class="section-heading">
               <h2>Latest Products</h2>
-              <a href="products.html">view all products <i class="fa fa-angle-right"></i></a>
+              <a href="#">view all products <i class="fa fa-angle-right"></i></a>
             </div>
           </div>
           
           <div class="col-md-4">
             <div class="product-item">
-              <a href="#"><img src="{% static 'assets/images/product_01.jpg' %}" alt=""></a>
+              <img src="{% static 'assets/images/tenis-nike.png' %}" alt="">
               <div class="down-content">
-                <a href="#"><h4>{{ produto.nome }}</h4></a>
+                <h4>{{ produto.nome }}</h4>
                 <h6>R$ {{ produto.get_display_price }}</h6>
-                <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                <p>Com o design original ondulado inspirado em trens-bala japoneses, 
+                  o Nike Air Max 97 permite que você aumente a velocidade do seu estilo.</p>
                 <ul class="stars">
                   <li><i class="fa fa-star"></i></li>
                   <li><i class="fa fa-star"></i></li>
@@ -126,7 +127,7 @@
                   <li><i class="fa fa-star"></i></li>
                 </ul>
                 <span>
-                  <button type="button" id="checkout-button">Comprar</button>
+                  <button type="button" class="btn btn-danger btn-sm" id="checkout-button">Comprar</button>
                 </span>
               </div>
             </div>
@@ -141,37 +142,6 @@
       </div>
 
 <!-- endblock -->
-   
-    <div class="best-features">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="section-heading">
-              <h2>About Sixteen Clothing</h2>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="left-content">
-              <h4>Looking for the best products?</h4>
-              <p><a rel="nofollow" href="https://templatemo.com/tm-546-sixteen-clothing" target="_parent">This template</a> is free to use for your business websites. However, you have no permission to redistribute the downloadable ZIP file on any template collection website. <a rel="nofollow" href="https://templatemo.com/contact">Contact us</a> for more info.</p>
-              <ul class="featured-list">
-                <li><a href="#">Lorem ipsum dolor sit amet</a></li>
-                <li><a href="#">Consectetur an adipisicing elit</a></li>
-                <li><a href="#">It aquecorporis nulla aspernatur</a></li>
-                <li><a href="#">Corporis, omnis doloremque</a></li>
-                <li><a href="#">Non cum id reprehenderit</a></li>
-              </ul>
-              <a href="about.html" class="filled-button">Read More</a>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="right-image">
-              <img src="{% static 'assets/images/feature-image.jpg' %}" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- <div class="call-to-action">
       <div class="container">
