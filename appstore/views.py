@@ -8,6 +8,7 @@ from .models import Produto
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
+
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
@@ -27,7 +28,7 @@ class index(TemplateView):
     template_name = 'index.html'
 
     def get_context_data(self, **kwargs):
-        produto = Produto.objects.get(nome="Teste")
+        produto = Produto.objects.get(nome="Tênis Nike Air Max 97")
         context = super(index, self).get_context_data(**kwargs)
         context.update({
             "produto": produto,
@@ -40,7 +41,6 @@ class CreateCheckoutSessionView(View):
     def post(self, request, *args, **kwargs):
         produto_id = self.kwargs["pk"]
         produto = Produto.objects.get(id=produto_id)
-        print(produto)
         YOUR_DOMAIN = "http://127.0.0.1:8000"
         checkout_session = stripe.checkout.Session.create(
             payment_method_types=['card'],

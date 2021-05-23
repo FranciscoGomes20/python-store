@@ -126,7 +126,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
 dotenv.load_dotenv(dotenv.find_dotenv())
 
 STRIPE_PUBLIC_KEY = 'pk_test_51ItdHDKjiMRChUHasQIgKUs4ISOyNHP1Dg1jyYlfdJX0TgTr6Zs0xPcTyMOTeZXF6b1aWMxPxCgkEq2pt4KA9gpq00CD8oCNRt'
@@ -139,6 +138,5 @@ STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET")
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
