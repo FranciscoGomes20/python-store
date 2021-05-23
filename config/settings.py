@@ -10,7 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import dotenv
+from dotenv import load_dotenv
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -123,8 +126,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
+dotenv.load_dotenv(dotenv.find_dotenv())
+
 STRIPE_PUBLIC_KEY = 'pk_test_51ItdHDKjiMRChUHasQIgKUs4ISOyNHP1Dg1jyYlfdJX0TgTr6Zs0xPcTyMOTeZXF6b1aWMxPxCgkEq2pt4KA9gpq00CD8oCNRt'
-STRIPE_SECRET_KEY = 'sk_test_51ItdHDKjiMRChUHaH0cigPivqlhxxyAIDhWelKMM8roF9eES25z9WvA3V0iDuvAu8d708cSpsC8JYBQ4rtkslyt900t6EuvJN2'
+
+STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY")
+
 STRIPE_WEBHOOK_SECRET = 'whsec_vc0zBYSiPqkmi35q994FauaL08oWmTh4'
 
 # Default primary key field type

@@ -4,6 +4,7 @@ chardet==4.0.0
 Django==3.2.3
 django-anymail==8.3
 idna==2.10
+python-dotenv==0.17.1
 pytz==2021.1
 requests==2.25.1
 sqlparse==0.4.1
