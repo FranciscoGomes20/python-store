@@ -8,8 +8,11 @@ from .models import Produto
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
-
 stripe.api_key = settings.STRIPE_SECRET_KEY
+
+
+def base(request):
+    return render(request, 'base.html')
 
 
 class SucessoView(TemplateView):
@@ -65,9 +68,6 @@ class CreateCheckoutSessionView(View):
             'id': checkout_session.id
         })
 
-def base(request):
-    return render(request, 'base.html')
-
 @csrf_exempt
 def stripe_webhook(request):
 
@@ -95,7 +95,6 @@ def stripe_webhook(request):
         customer_email = session["customer_details"]["email"]
         produto_id = session["metadata"]["produto_id"]
 
-        
         produto = Produto.objects.get(id=produto_id)
 
         send_mail(
@@ -104,8 +103,6 @@ def stripe_webhook(request):
             recipient_list=[customer_email],
             from_email="python-store@gmail.com"
         )
-
-        
 
     # Passed signature verification
     return HttpResponse(status=200)

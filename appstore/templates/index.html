@@ -9,19 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}"/>
 
-    <title>Sixteen Clothing HTML Template</title>
+    <title>Python Store</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    
-<!--
-
-TemplateMo 546 Sixteen Clothing
-
-https://templatemo.com/tm-546-sixteen-clothing
-
--->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
@@ -50,7 +44,7 @@ https://templatemo.com/tm-546-sixteen-clothing
     <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="index.html"><h2>Sixteen <em>Clothing</em></h2></a>
+          <a class="navbar-brand" href="#"><h2>Python <em>Store</em></h2></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -138,6 +132,14 @@ https://templatemo.com/tm-546-sixteen-clothing
             </div>
           </div>
 
+    <!-- #### Modal #### -->
+      <div class="modal-overlay">
+        <div class="modal">
+              <h2>Menssagem teste!</h2>
+          </div>
+        </div>
+      </div>
+
 <!-- endblock -->
    
     <div class="best-features">
@@ -171,7 +173,7 @@ https://templatemo.com/tm-546-sixteen-clothing
       </div>
     </div>
 
-    <div class="call-to-action">
+    <!-- <div class="call-to-action">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -189,7 +191,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <footer>
       <div class="container">
@@ -252,6 +254,16 @@ https://templatemo.com/tm-546-sixteen-clothing
       });
     </script>
 
+    <script>
+      const Modal = {
+          open() {
+              document.querySelector('.modal-overlay').classList.add('active')
+          },
+          close() {
+              document.querySelector('.modal-overlay').classList.remove('active')
+          }
+      }
+    </script>
 
     <script language = "text/Javascript"> 
       cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
